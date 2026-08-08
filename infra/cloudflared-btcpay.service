@@ -1,0 +1,14 @@
+[Unit]
+Description=Tunel Cloudflare para BTCPay + auto-actualizacion de botones
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=umbrel
+ExecStart=/home/umbrel/reconfigurar_tunel.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
