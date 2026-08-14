@@ -1,0 +1,14 @@
+[Unit]
+Description=Tunel Cloudflare para LNbits + auto-actualizacion de withdraw links
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=umbrel
+ExecStart=/bin/bash /home/umbrel/reconfigurar_tunnel_lnbits.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
